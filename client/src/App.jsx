@@ -1,7 +1,9 @@
 import React from 'react'
-import './App.css'
+import apiReq from './function/apiReq'
 export default function App() {
+  let data = apiReq().then(res=>console.log(res.data))
   return (
-    <div>App</div>
+    <div>
+    </div>
   )
 }
