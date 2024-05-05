@@ -1,0 +1,25 @@
+.Title {
+    color: white;
+    text-shadow: 3px 3px 0px #000000 ;
+    -webkit-text-stroke: 1px #000000;
+    font-size: 35px;
+}
+
+.shadow {
+    width: 200px;
+    height: 1px;
+    position: absolute;
+    top: 20px;
+    background-color: #23ACF9;
+    border-radius: 1000px;
+    box-shadow: 0px 0px 50px 50px #23ACF9;
+    z-index: -1;
+}
+
+.all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
