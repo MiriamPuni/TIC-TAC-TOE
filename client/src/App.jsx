@@ -9,8 +9,9 @@ import ButtonBack from './components/ButtonBack'
 import Title from './components/Title'
 import Logo from './components/Logo'
 import HeaderGame from './components/HeaderGame'
-
+import apiReq from './function/apiReq'
 export default function App() {
+  let data = apiReq().then(res=>console.log(res.data))
   return (
     <div>
       <HeaderGame userName={"gila"} />
