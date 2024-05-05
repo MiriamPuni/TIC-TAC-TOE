@@ -32,7 +32,7 @@ const router = express.Router()
 
 
 
-let board = [['', '', 'X'], ['', 'X', ''], ['X', '', '']]
+// let board = [['', '', ''], ['', '', ''], ['', '', '']]
 let player = 'X'
 // let board = [['X', '', ''], ['X', '', ''], ['X', '', '']]
 // let board = [['', '', ''], ['', '', ''], ['X', 'X', 'X']]
@@ -79,7 +79,7 @@ function checkSecondaryDiagonal(board, row,column, player){
     return true
 }
 
-function checkWin(row, column) {
+function checkWin(row, column, board) {
     if (player == 'X') player = 'O'
     else player = 'X'
     if (board[row][column] != '') throw 'the place full'
@@ -93,12 +93,11 @@ function checkWin(row, column) {
 
 
 
-router.get('/', async (req, res) => {
+router.put('/', async (req, res) => {
     try {
-        console.log(req.data);
-        let {row, column} = req.data
-        let win = checkWin(row, column)
-        let result = {win, player}
+        let {row, column, board} = req.body
+        let win = checkWin(row, column, board)
+        let result = {win, player, board}
         res.send(result)
     } catch (error) {
         res.send(error)

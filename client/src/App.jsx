@@ -10,11 +10,12 @@ import Title from './components/Title'
 import Logo from './components/Logo'
 import HeaderGame from './components/HeaderGame'
 import apiReq from './function/apiReq'
+import BoardWithPlayer from './pages/BoardWithPlayers'
 export default function App() {
-  let data = apiReq().then(res=>console.log(res.data))
   return (
     <div>
-      <HeaderGame userName={"gila"} />
+      <BoardWithPlayer/>
+      {/* <HeaderGame userName={"gila"} />
       <Logo />
       <ButtonBack/>
       <Title content={"join to game"} />
@@ -33,7 +34,7 @@ export default function App() {
       </Board>
       <Button content={"go to game!!"} />
       <X width={'70px'} height={'70px'} />
-      <O width={'70px'} height={'70px'} />
+      <O width={'70px'} height={'70px'} /> */}
     </div>
   )
 }
