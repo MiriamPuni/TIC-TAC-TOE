@@ -1,0 +1,21 @@
+.Waiting {
+    margin: 25px;
+}
+
+.withoutbuttonback {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.code{
+    width: 80%;
+    height: 60px;
+    position: absolute;
+    top: 235px;
+    font-size: 40px;
+    padding: 10px;
+    letter-spacing: 20px;
+    text-align: center;
+    color: #373737;
+}

@@ -11,10 +11,23 @@ import Logo from './components/Logo'
 import HeaderGame from './components/HeaderGame'
 import apiReq from './function/apiReq'
 import BoardWithPlayer from './pages/BoardWithPlayers'
+import Welcome from './pages/Welcome'
+import Menu from './pages/Menu'
+import JoinGame from './pages/JoinGame'
+import Waiting from './pages/Waiting'
+import ChoosePlayer from './pages/ChoosePlayer'
+import WaitingJoin from './pages/WaitingJoin'
 export default function App() {
   return (
     <div>
-      <BoardWithPlayer/>
+      <Welcome/>
+      {/* <Menu /> */}
+      {/* <JoinGame/> */}
+      {/* <Waiting/> */}
+      {/* <ChoosePlayer/> */}
+      {/* <WaitingJoin/> */}
+      {/* <BoardWithPlayer/> */}
+
       {/* <HeaderGame userName={"gila"} />
       <Logo />
       <ButtonBack/>
