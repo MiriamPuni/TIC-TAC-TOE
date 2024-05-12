@@ -1,5 +1,5 @@
 .HeaderGame{
-    width: 100%;
+    width: 100vw;
     height: 90px;
     background-color: #FCD015;
     color: white;
@@ -8,7 +8,6 @@
     -webkit-text-stroke: 1px #000000;
     text-align: end;
     padding: 20px 30px;
-    
 }
 
 .triangle{
@@ -30,7 +29,7 @@
     z-index: -1;
 }
 .all{
-    margin-top: 30px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     position: relative;
