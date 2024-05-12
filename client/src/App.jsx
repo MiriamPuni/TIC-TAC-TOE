@@ -1,24 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import Board from './components/Board'
-import Button from './components/Button'
-import Cell from './components/Cell'
-import X from './components/X'
-import style from './style.module.scss'
-import O from './components/O'
-import ButtonBack from './components/ButtonBack'
-import Title from './components/Title'
-import Logo from './components/Logo'
-import HeaderGame from './components/HeaderGame'
-import apiReq from './function/apiReq'
+import React, { createContext, useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import BoardWithPlayer from './pages/BoardWithPlayers'
-import Welcome from './pages/Welcome'
-import Menu from './pages/Menu'
-import JoinGame from './pages/JoinGame'
-import Waiting from './pages/Waiting'
 import ChoosePlayer from './pages/ChoosePlayer'
+import JoinGame from './pages/JoinGame'
+import Menu from './pages/Menu'
+import Setting from './pages/Setting'
+import Waiting from './pages/Waiting'
 import WaitingJoin from './pages/WaitingJoin'
-import User from './components/User'
+import Welcome from './pages/Welcome'
+
+export const DataContext = createContext({})
+
 export default function App() {
+
   const [welcome, setWelcome] = useState(true)
   useEffect(() => {
     setTimeout(() => {
@@ -26,8 +20,21 @@ export default function App() {
     }, 4000);
   })
 
-
+  const [user, setUser] = useState([{ userName: "", img: "", play: "" }])
   return (
+<<<<<<< HEAD
+    <DataContext.Provider value={{ user, setUser }}>
+      <Routes>
+        <Route path='*' element={welcome ? <Welcome /> : <Menu />} />
+        <Route path='/JoinGame' element={<JoinGame />} />
+        <Route path='/Setting' element={<Setting />} />
+        <Route path='/Waiting' element={<Waiting />} />
+        <Route path='/WaitingJoin' element={<WaitingJoin />} />
+        <Route path='/ChoosePlayer' element={<ChoosePlayer />} />
+        <Route path='/BoardWithPlayer' element={<BoardWithPlayer />} />
+      </Routes>
+    </DataContext.Provider>
+=======
     <div>
       {/* <Welcome/> */}
       {/* <Menu /> */}
@@ -58,5 +65,6 @@ export default function App() {
       <X width={'70px'} height={'70px'} />
       <O width={'70px'} height={'70px'} /> */}
     </div>
+>>>>>>> 1a55135a63063ec3ac2a9aaaa8a9b48f0718428d
   )
 }
