@@ -13,7 +13,16 @@ export default function BoardWithPlayer() {
     async function clickCell(row, col) {
         let res = await apiReq('', 'put', { row, column: col, board , player })
         if (res.data.board) setBoard(res.data.board)
+    let [player, setPlayer] = useState('X')
+    async function clickCell(row, col) {
+        let res = await apiReq('', 'put', { row, column: col, board , player})
+        if (res.data.board){
+             setBoard(res.data.board)
+             if(player == 'X') setPlayer('O')
+                else setPlayer('X')
+            }
         console.log(res.data);
+
     }
 
     const [player , setPlayer]= useState("X")
