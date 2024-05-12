@@ -21,8 +21,8 @@ export default function App() {
   return (
     <div>
       {/* <Welcome/> */}
-      <Menu />
-      {/* <JoinGame/> */}
+      {/* <Menu /> */}
+      <JoinGame/>
       {/* <Waiting/> */}
       {/* <ChoosePlayer/> */}
       {/* <WaitingJoin/> */}
