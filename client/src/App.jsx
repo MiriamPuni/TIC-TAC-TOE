@@ -31,11 +31,11 @@ export default function App() {
     <div>
       {/* <Welcome/> */}
       {/* <Menu /> */}
-      <JoinGame/>
+      {/* <JoinGame/> */}
       {/* <Waiting/> */}
       {/* <ChoosePlayer/> */}
       {/* <WaitingJoin/> */}
-      {/* <BoardWithPlayer/> */}
+      <BoardWithPlayer/>
 
       {/* <HeaderGame userName={"gila"} />
       <Logo />

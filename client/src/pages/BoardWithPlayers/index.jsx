@@ -15,16 +15,14 @@ export default function BoardWithPlayer() {
         if(player=='X') setPlayer('O')
         else setPlayer('X')
     }
-    async function clickCell(row, col) {
-        let res = await apiReq('', 'put', { row, column: col, board , player })
-        if (res.data.board) setBoard(res.data.board)
+
     async function clickCell(row, col) {
         let res = await apiReq('', 'put', { row, column: col, board , player})
         if (res.data.board){
              setBoard(res.data.board)
+             change()
             }
         console.log(res.data);
-
     }
 
 

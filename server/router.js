@@ -27,12 +27,11 @@ function checkWin(row, column, board, player) {
     if(row == column){
         if (checkMainDiagonal(board, row, column, player, arr)) return true
     }
-    if(row == (board.length - 1 + row)){
+    if(row == (board.length - 1 - column)){
         if (checkSecondaryDiagonal(board, row, column, player, arr)) return true
     }
     else return false
 }
-(0, 2), (1, 1), (2, 0)
 
 
 router.put('/', async (req, res) => {
