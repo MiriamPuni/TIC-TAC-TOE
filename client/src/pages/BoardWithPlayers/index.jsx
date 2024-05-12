@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Board from '../../components/Board'
 import Cell from '../../components/Cell'
 import style from './style.module.scss'
@@ -7,7 +7,13 @@ import X from '../../components/X'
 import O from '../../components/O'
 import Button from '../../components/Button'
 import HeaderGame from '../../components/HeaderGame'
+import useSocket from '../../socket'
 export default function BoardWithPlayer() {
+
+    // const socket = useSocket()
+    // useEffect(()=>{
+    //     socket.on('connection', (msg)=>console.log(msg))
+    // },[])
 
     let [board, setBoard] = useState([['', '', ''], ['', '', ''], ['', '', '']])
     const [player , setPlayer]= useState("X")

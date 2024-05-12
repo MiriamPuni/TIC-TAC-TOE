@@ -18,6 +18,7 @@ import Waiting from './pages/Waiting'
 import ChoosePlayer from './pages/ChoosePlayer'
 import WaitingJoin from './pages/WaitingJoin'
 import User from './components/User'
+import useSocket, { SocketProvider } from './socket'
 export default function App() {
   const [welcome, setWelcome] = useState(true)
   useEffect(() => {
@@ -26,16 +27,22 @@ export default function App() {
     }, 4000);
   })
 
-
+  const socket = useSocket()
+  useEffect(() => {
+    socket.on('connection')
+  }, [])
   return (
     <div>
-      {/* <Welcome/> */}
-      {/* <Menu /> */}
-      {/* <JoinGame/> */}
-      {/* <Waiting/> */}
-      {/* <ChoosePlayer/> */}
-      {/* <WaitingJoin/> */}
-      <BoardWithPlayer/>
+      <SocketProvider>
+        {/* <BoardWithPlayer/> */}
+        {/* <Welcome/> */}
+        {/* <Menu /> */}
+        {/* <JoinGame/> */}
+        <Waiting />
+        {/* <ChoosePlayer/> */}
+        {/* <WaitingJoin/> */}
+      </SocketProvider>
+
 
       {/* <HeaderGame userName={"gila"} />
       <Logo />
