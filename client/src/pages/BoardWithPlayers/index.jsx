@@ -10,26 +10,22 @@ import HeaderGame from '../../components/HeaderGame'
 export default function BoardWithPlayer() {
 
     let [board, setBoard] = useState([['', '', ''], ['', '', ''], ['', '', '']])
-    async function clickCell(row, col) {
-        let res = await apiReq('', 'put', { row, column: col, board , player })
-        if (res.data.board) setBoard(res.data.board)
-    let [player, setPlayer] = useState('X')
-    async function clickCell(row, col) {
-        let res = await apiReq('', 'put', { row, column: col, board , player})
-        if (res.data.board){
-             setBoard(res.data.board)
-             if(player == 'X') setPlayer('O')
-                else setPlayer('X')
-            }
-        console.log(res.data);
-
-    }
-
     const [player , setPlayer]= useState("X")
     const change=()=>{
         if(player=='X') setPlayer('O')
         else setPlayer('X')
     }
+
+    async function clickCell(row, col) {
+        let res = await apiReq('', 'put', { row, column: col, board , player})
+        if (res.data.board){
+             setBoard(res.data.board)
+             change()
+            }
+        console.log(res.data);
+    }
+
+
 
     return (
         <div className={style.BoardWithPlayer}>

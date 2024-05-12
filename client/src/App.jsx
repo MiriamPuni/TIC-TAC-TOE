@@ -29,12 +29,13 @@ export default function App() {
 
   return (
     <div>
-      {/* {welcome ? <Welcome /> : <Menu />} */}
+      {/* <Welcome/> */}
+      {/* <Menu /> */}
       {/* <JoinGame/> */}
       {/* <Waiting/> */}
       {/* <ChoosePlayer/> */}
       {/* <WaitingJoin/> */}
-      {/* <BoardWithPlayer/> */}
+      <BoardWithPlayer/>
 
       {/* <HeaderGame userName={"gila"} />
       <Logo />
