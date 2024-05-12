@@ -18,13 +18,13 @@ function checkSecondaryDiagonal(board, row, column, player, arr) {
 }
 
 function checkWin(row, column, board, player) {
-    // if ()
+    // if () הלוח של שלוש על שלוש וכו
     let arr = [0, 1, 2]
     if (board[row][column] != '') throw 'the place full'
     board[row][column] = player
     if (checkRow(board, row, column, player)) return true
     if (checkColumn(board, row, column, player, arr)) return true
-    if(`row` == column){
+    if(row == column){
         if (checkMainDiagonal(board, row, column, player, arr)) return true
     }
     if(row == (board.length - 1 + row)){
