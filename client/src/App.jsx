@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Board from './components/Board'
 import Button from './components/Button'
 import Cell from './components/Cell'
@@ -17,7 +17,16 @@ import JoinGame from './pages/JoinGame'
 import Waiting from './pages/Waiting'
 import ChoosePlayer from './pages/ChoosePlayer'
 import WaitingJoin from './pages/WaitingJoin'
+import User from './components/User'
 export default function App() {
+  const [welcome, setWelcome] = useState(true)
+  useEffect(() => {
+    setTimeout(() => {
+      setWelcome(false)
+    }, 4000);
+  })
+
+
   return (
     <div>
       {/* <Welcome/> */}

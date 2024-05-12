@@ -3,6 +3,7 @@ import Logo from '../../components/Logo'
 import Button from '../../components/Button'
 
 export default function Menu() {
+    
     return (
         <div className={style.Menu}>
             <Logo />
