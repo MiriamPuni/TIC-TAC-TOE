@@ -20,8 +20,8 @@ import WaitingJoin from './pages/WaitingJoin'
 export default function App() {
   return (
     <div>
-      <Welcome/>
-      {/* <Menu /> */}
+      {/* <Welcome/> */}
+      <Menu />
       {/* <JoinGame/> */}
       {/* <Waiting/> */}
       {/* <ChoosePlayer/> */}
