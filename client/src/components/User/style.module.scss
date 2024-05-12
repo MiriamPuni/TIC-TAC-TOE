@@ -1,0 +1,20 @@
+.User {
+    margin-top: -80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img {
+    border: 7px solid #b22222;
+    border-radius: 100%;
+}
+
+.userName {
+    color: white;
+    font-size: 30px;
+    margin-top: -20px;
+    text-shadow: 3px 3px 0px #000000;
+    -webkit-text-stroke: 1px #000000;
+    text-align: center;
+}
