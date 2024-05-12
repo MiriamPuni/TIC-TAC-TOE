@@ -1,7 +1,10 @@
-import React from 'react'
+import style from './style.module.scss'
 
-export default function User() {
+export default function User({ avatar, userName, width, height }) {
   return (
-    <div>User</div>
+    <div className={style.User}>
+      <img src={avatar} alt="" style={{ width, height }} className={style.img}/>
+      <div className={style.userName}>{userName}</div>
+    </div>
   )
 }

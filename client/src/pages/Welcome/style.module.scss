@@ -1,18 +1,95 @@
 .x1 {
     margin: 30px;
+    animation: move 10s infinite;
 }
 
 .o1 {
+    animation: move1 8s infinite;
     margin-left: 270px;
     margin-top: -80px;
 }
 
 .o2 {
     margin-left: 20px;
+    animation: move1 12s infinite;
     margin-top: 70px;
 }
 
 .x2 {
     margin-left: 240px;
     margin-top: 30px;
+    animation: move 7s infinite;
+}
+
+.Welcome {
+    animation: entry 4s ease-in-out forwards;
+
+}
+
+@keyframes entry {
+    0% {
+        opacity: 0
+    }
+    20% {
+        opacity: 1
+    }
+    75% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0px);
+    }
+
+    25% {
+        transform: translateY(-7px);
+    }
+
+    50% {
+        transform: translateX(7px);
+    }
+
+    75% {
+        transform: translateX(-7px);
+    }
+
+    90% {
+        transform: translateY(7px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes move1 {
+    0% {
+        transform: translateY(0px);
+    }
+
+    25% {
+        transform: translateY(-7px);
+    }
+
+    50% {
+        transform: translateX(-7px);
+    }
+
+    75% {
+        transform: translateX(7px);
+    }
+
+    90% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
