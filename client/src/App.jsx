@@ -22,6 +22,7 @@ export default function App() {
 
   const [user, setUser] = useState([{ userName: "", img: "", play: "" }])
   return (
+<<<<<<< HEAD
     <DataContext.Provider value={{ user, setUser }}>
       <Routes>
         <Route path='*' element={welcome ? <Welcome /> : <Menu />} />
@@ -33,5 +34,37 @@ export default function App() {
         <Route path='/BoardWithPlayer' element={<BoardWithPlayer />} />
       </Routes>
     </DataContext.Provider>
+=======
+    <div>
+      {/* <Welcome/> */}
+      {/* <Menu /> */}
+      {/* <JoinGame/> */}
+      {/* <Waiting/> */}
+      {/* <ChoosePlayer/> */}
+      {/* <WaitingJoin/> */}
+      <BoardWithPlayer/>
+
+      {/* <HeaderGame userName={"gila"} />
+      <Logo />
+      <ButtonBack/>
+      <Title content={"join to game"} />
+      <Board width={'300px'} height={'300px'}>
+        <div className={style.cell9}>
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+          <Cell width={'82px'} height={'82px'} colorCell={'#C9F9FC'} />
+        </div>
+      </Board>
+      <Button content={"go to game!!"} />
+      <X width={'70px'} height={'70px'} />
+      <O width={'70px'} height={'70px'} /> */}
+    </div>
+>>>>>>> 1a55135a63063ec3ac2a9aaaa8a9b48f0718428d
   )
 }
