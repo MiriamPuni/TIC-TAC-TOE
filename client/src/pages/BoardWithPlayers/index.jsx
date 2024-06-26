@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Board from '../../components/Board'
 import Cell from '../../components/Cell'
 import style from './style.module.scss'
@@ -7,20 +7,26 @@ import X from '../../components/X'
 import O from '../../components/O'
 import Button from '../../components/Button'
 import HeaderGame from '../../components/HeaderGame'
+import useSocket from '../../socket'
 import { useNavigate } from 'react-router-dom'
 import { DataContext } from '../../App'
 
 export default function BoardWithPlayer() {
     const { user, setUser } = useContext(DataContext)
+    const { play } = user;
+    const [player, setPlayer] = useState(play)
+    // const socket = useSocket()
+    // useEffect(()=>{
+    //     socket.on('connection', (msg)=>console.log(msg))
+    // },[])
 
     let [board, setBoard] = useState([['', '', ''], ['', '', ''], ['', '', '']])
     async function clickCell(row, col) {
         let res = await apiReq('', 'put', { row, column: col, board, player })
         if (res.data.board){ setBoard(res.data.board); change()}
-        console.log(res.data);
+        console.log('🎉🎉',res.data);
     }
-    const { play } = user;
-    const [player, setPlayer] = useState(play)
+
     const change = () => {
         if (player == 'X') setPlayer('O')
         else setPlayer('X')

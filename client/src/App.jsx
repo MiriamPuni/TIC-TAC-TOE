@@ -11,6 +11,7 @@ import Welcome from './pages/Welcome'
 
 export const DataContext = createContext({})
 
+import useSocket, { SocketProvider } from './socket'
 export default function App() {
 
   const [welcome, setWelcome] = useState(true)
@@ -21,6 +22,10 @@ export default function App() {
   })
 
   const [user, setUser] = useState([{ userName: "", img: "", play: "" }])
+  const socket = useSocket()
+  useEffect(() => {
+    socket.on('connection')
+  }, [])
   return (
     <DataContext.Provider value={{ user, setUser }}>
       <Routes>
