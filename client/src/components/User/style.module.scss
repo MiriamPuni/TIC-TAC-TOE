@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .img {
@@ -13,8 +14,32 @@
 .userName {
     color: white;
     font-size: 30px;
-    margin-top: -20px;
+    // margin-top: -20px;
     text-shadow: 3px 3px 0px #000000;
     -webkit-text-stroke: 1px #000000;
     text-align: center;
+}
+
+.wins {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+}
+
+.winumber {
+    background-color: #000000;
+    padding: 5px 20px;
+    border-radius: 15px;
+    font-size: 24px;
+    position: absolute;
+    left: 195px;
+    top: 4px;
+}
+
+.ooo {
+    width: 100%;
+    z-index: 2;
 }
