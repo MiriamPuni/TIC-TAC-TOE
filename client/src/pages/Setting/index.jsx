@@ -33,7 +33,7 @@ export default function Setting() {
             <br /><br />
             <Board height={"80px"} width={"95%"} />
             <form onSubmit={onSubmit}>
-                <input type="text" className={style.input} value={userName} onChange={(e) => { setUserName(e.target.value) }} placeholder='Enter Your Name' />
+                <input type="text" className={style.input} value={userName} onChange={(e) => {setUserName(e.target.value)}} placeholder='Enter Your Name' />
                 <br /><br />
                 <Title content={"Choose Avater"} />
                 <AvatarImg/>

@@ -14,7 +14,6 @@ export default function BoardWithPlayer() {
     const { user, setUser } = useContext(DataContext)
 
     let [board, setBoard] = useState([['', '', ''], ['', '', ''], ['', '', '']])
-<<<<<<< HEAD
     async function clickCell(row, col) {
         let res = await apiReq('', 'put', { row, column: col, board, player })
         if (res.data.board){ setBoard(res.data.board); change()}
@@ -29,24 +28,6 @@ export default function BoardWithPlayer() {
 
     const nav = useNavigate()
     console.log("k",user , play);
-=======
-    const [player , setPlayer]= useState("X")
-    const change=()=>{
-        if(player=='X') setPlayer('O')
-        else setPlayer('X')
-    }
-
-    async function clickCell(row, col) {
-        let res = await apiReq('', 'put', { row, column: col, board , player})
-        if (res.data.board){
-             setBoard(res.data.board)
-             change()
-            }
-        console.log(res.data);
-    }
-
-
->>>>>>> 1a55135a63063ec3ac2a9aaaa8a9b48f0718428d
 
     return (
         <div className={style.BoardWithPlayer}>
