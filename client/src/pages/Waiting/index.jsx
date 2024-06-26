@@ -11,7 +11,7 @@ export default function Waiting() {
     useEffect(()=>{
         socket.emit('create-game', {char: 'X', img : 1 , name: 'miriam'})
         console.log('🤩🤩🤩');
-        // socket.on('create-game', (msg)=>console.log(msg))
+        socket.on('create-game', (msg)=>console.log(msg))
     },[])
     return (
         <div className={style.Waiting}>
