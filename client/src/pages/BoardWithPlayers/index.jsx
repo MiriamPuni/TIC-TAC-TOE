@@ -14,6 +14,7 @@ import { DataContext } from '../../App'
 export default function BoardWithPlayer() {
     const { user, setUser } = useContext(DataContext)
     const { play } = user;
+    const [notActive, setNotActice] = useState(false)
     const [player, setPlayer] = useState(play)
     // const socket = useSocket()
     // useEffect(()=>{
@@ -21,15 +22,35 @@ export default function BoardWithPlayer() {
     // },[])
 
     let [board, setBoard] = useState([['', '', ''], ['', '', ''], ['', '', '']])
+    let [win, setWin] = useState(false)
     async function clickCell(row, col) {
         let res = await apiReq('', 'put', { row, column: col, board, player })
         if (res.data.board) { setBoard(res.data.board); change() }
+<<<<<<< HEAD
         if (win) win()
         console.log('🎉🎉', res.data);
     }
     const win = () => {
 
     }
+=======
+        if (res.data.win) setWin(res.data.win)
+        console.log('🎉🎉', res.data);
+    }
+    const colorChar = (data) => {
+        if (win) {
+            if (win == 'draw') {
+                return true
+            } else {
+                if (win.find(w => w[0] === data[0] && w[1] === data[1])) {
+                    return false
+                } else {
+                    return true
+                }
+            }
+        }
+    }
+>>>>>>> a2b1c461cb2aed810980060279ecac799a94be35
     const change = () => {
         if (player == 'X') setPlayer('O')
         else setPlayer('X')
@@ -44,7 +65,11 @@ export default function BoardWithPlayer() {
             <br /><br /><br /><br /><br />
             <Board width={'330px'} height={'330px'}>
                 <div className={style.cell9}>
+<<<<<<< HEAD
                     {board.map((row, i) => row.map((cell, j) => <Cell  key={`${i}${j}`} onClick={clickCell} data={[i, j]} width={'90px'} height={'90px'} colorCell={'#C9F9FC'} >{cell == 'X' ? <X width={'80%'} height={'80%'} /> : cell == 'O' ? <O width={'80%'} height={'80%'} /> : ''}</Cell>))}
+=======
+                    {board.map((row, i) => row.map((cell, j) => <Cell win={win} key={`${i}${j}`} onClick={clickCell} data={[i, j]} width={'90px'} height={'90px'} colorCell={'#C9F9FC'} >{cell == 'X' ? <X notActive = {colorChar([i,j])} width={win?colorChar([i, j]) ? '80%' : '100%': '80%'} height={win?colorChar([i, j]) ? '80%' : '100%': '80%'} /> : cell == 'O' ? <O notActive={colorChar([i, j])} width={win?colorChar([i, j]) ? '80%' : '100%': '80%'} height={win?colorChar([i, j]) ? '80%' : '100%': '80%'}/> : ''}</Cell>))}
+>>>>>>> a2b1c461cb2aed810980060279ecac799a94be35
                 </div>
             </Board>
             <br /><br /><br />
