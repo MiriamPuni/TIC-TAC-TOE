@@ -15,4 +15,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: entry 0.5s forwards reverse;
+}
+
+@keyframes entry {
+    0% {
+        translate: 0 0;
+    }
+
+    100% {
+        translate: 100% 0;
+    }
+
 }

@@ -1,0 +1,13 @@
+.X {
+    animation: entry 0.3s forwards; /* הסרנו reverse כדי שהאנימציה תעבוד קדימה */
+}
+
+@keyframes entry {
+    0% {
+        transform: scale(0); /* scale התחיל מ-1 (100%) */
+    }
+
+    100% {
+        transform: scale(1); /* scale קטן לאפס */
+    }
+}

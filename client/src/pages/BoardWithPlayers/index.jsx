@@ -23,17 +23,20 @@ export default function BoardWithPlayer() {
     let [board, setBoard] = useState([['', '', ''], ['', '', ''], ['', '', '']])
     async function clickCell(row, col) {
         let res = await apiReq('', 'put', { row, column: col, board, player })
-        if (res.data.board){ setBoard(res.data.board); change()}
-        console.log('🎉🎉',res.data);
+        if (res.data.board) { setBoard(res.data.board); change() }
+        if (win) win()
+        console.log('🎉🎉', res.data);
     }
+    const win = () => {
 
+    }
     const change = () => {
         if (player == 'X') setPlayer('O')
         else setPlayer('X')
     }
 
     const nav = useNavigate()
-    console.log("k",user , play);
+    console.log("k", user, play);
 
     return (
         <div className={style.BoardWithPlayer}>
@@ -41,7 +44,7 @@ export default function BoardWithPlayer() {
             <br /><br /><br /><br /><br />
             <Board width={'330px'} height={'330px'}>
                 <div className={style.cell9}>
-                    {board.map((row, i) => row.map((cell, j) => <Cell key={`${i}${j}`} onClick={clickCell} data={[i, j]} width={'90px'} height={'90px'} colorCell={'#C9F9FC'} >{cell == 'X' ? <X width={'80%'} height={'80%'} /> : cell == 'O' ? <O width={'80%'} height={'80%'} /> : ''}</Cell>))}
+                    {board.map((row, i) => row.map((cell, j) => <Cell  key={`${i}${j}`} onClick={clickCell} data={[i, j]} width={'90px'} height={'90px'} colorCell={'#C9F9FC'} >{cell == 'X' ? <X width={'80%'} height={'80%'} /> : cell == 'O' ? <O width={'80%'} height={'80%'} /> : ''}</Cell>))}
                 </div>
             </Board>
             <br /><br /><br />

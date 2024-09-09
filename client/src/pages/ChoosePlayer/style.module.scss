@@ -8,6 +8,18 @@
 
 .ChoosePlayer {
     margin: 25px;
+    animation: entry 0.5s forwards reverse;
+}
+
+@keyframes entry {
+    0% {
+        translate: 0 0;
+    }
+
+    100% {
+        translate: 100% 0;
+    }
+
 }
 
 .cell {
