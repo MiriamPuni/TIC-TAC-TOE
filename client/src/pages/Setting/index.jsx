@@ -19,25 +19,33 @@ export default function Setting() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        nav("/ChoosePlayer")
-        setUser(user => ({ ...user, userName }))
+        
+        setUser((user) => ({ ...user, userName }))
+        const isPlayer2Set = user.img2 && user.img2 !== "imgAnonimy" && user.userName2 && user.userName2 !== "PLAYER 2";
+    
+        if (isPlayer2Set) {
+            nav("/ChoosePlayer");
+        } else {
+            nav("/SettingPlayer2");
+        }
+        localStorage.setItem('playerWins' , 0)
+        localStorage.setItem('opponentWins' , 0)
     }
-    console.log("u", user);
 
     return (
         <div className={style.Setting}>
             <Logo />
-            <div className={style.title}>
-                <Title content={"Your Name:"} fontSize={'27px'} />
-            </div>
-            <br /><br />
+            <Title content={"Player 1:"} boxShadow={'0px 0px 0px 0px rgb(0, 0, 0 ,0)'} />
+            {/* <div className={style.title}>
+                <Title content={"Your Name:"} fontSize={'27px'} boxShadow={'0px 0px 0px 0px rgb(154, 154, 154 ,0)'}/>
+            </div> */}
             <Board height={"80px"} width={"95%"} />
             <form onSubmit={onSubmit}>
-                <input type="text" className={style.input} value={userName} onChange={(e) => {setUserName(e.target.value)}} placeholder='Enter Your Name' />
-                <br /><br />
+                <input type="text" className={style.input} value={userName} onChange={(e) => { setUserName(e.target.value) }} placeholder='Enter Your Name' />
+                <br />
                 <Title content={"Choose Avater"} />
-                <AvatarImg/>
-                <br /><br />
+                <AvatarImg />
+                <br />
                 <div className={style.button2}>
                     <ButtonBack />
                     <button className={style.ButtonBack} type='submit'>

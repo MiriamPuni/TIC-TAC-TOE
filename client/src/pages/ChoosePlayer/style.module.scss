@@ -8,7 +8,7 @@
 
 .ChoosePlayer {
     margin: 25px;
-    animation: entry 0.5s forwards reverse;
+    // animation: entry 0.5s forwards reverse;
 }
 
 @keyframes entry {
@@ -31,6 +31,60 @@
 
 }
 
-.buttonsubmit{
+.buttonsubmit {
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.minititle {
+    margin-top: -50px;
+    margin-bottom: -20px;
+}
+
+.img {
+    border: 3px solid white;
+    border-radius: 100%;
+    width: 110px;
+}
+
+.userName {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 5px;
+    text-shadow: 3px 3px 0px #000000;
+    -webkit-text-stroke: 1px #000000;
+    text-align: center;
+}
+
+.players {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player1 {
+    margin-right: -50px;
+}
+
+.player2 {
+    margin-left: -50px;
+}
+
+.vs {
+    transform: rotate(-18deg);
+    margin-top: 30px;
+    // z-index: -1;
+}
+.editAvatar{
+    border-radius: 100%;
+    width: 35px;
+    position: absolute;
+    top: 630px;
+    z-index: 2;
+}
+.editAvatar{
+    width: 40px;
+
 }

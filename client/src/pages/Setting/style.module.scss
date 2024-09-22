@@ -4,7 +4,7 @@
     background-color: white;
     border: none;
     position: absolute;
-    top: 325px;
+    top: 390px;
     left: 40px;
     font-size: 35px;
     font-family: "Luckiest Guy", cursive;
@@ -46,7 +46,7 @@ input:focus {
 }
 
 .Setting {
-    margin: 25px;
+    margin: -20px 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,8 +67,8 @@ input:focus {
 .title {
     width: 100%;
     position: absolute;
-    top: 330px;
-    z-index: -1;
+    top: 335px;
+    z-index: 1;
 }
 
 .button2 {

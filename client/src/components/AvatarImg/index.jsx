@@ -10,13 +10,12 @@ export default function AvatarImg() {
     const onclick = (img) => {
         setUser(user=>({ ...user, img }))
     }
-    console.log("userrrr", user);
 
     return (
         <div className={style.AvatarImg}>
             <img onClick={()=>onclick(img1)} className={style.img} src={img1} alt="" />
             <img onClick={()=>onclick(img2)} className={style.img} src={img2} alt="" />
-            <img onClick={()=>onclick(img1)} className={style.img} src={img3} alt="" />
+            <img onClick={()=>onclick(img3)} className={style.img} src={img3} alt="" />
         </div>
     )
 }

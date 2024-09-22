@@ -9,17 +9,25 @@ import { useContext, useState } from 'react'
 import Button from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
 import { DataContext } from '../../App'
+import User from '../../components/User'
 
 export default function ChoosePlayer() {
     const { user, setUser } = useContext(DataContext)
-
+    const { img, img2, userName, userName2 } = user
+    const imgAnonimy = "anonimy.png"
     const [isActive, setIsActive] = useState(null)
-    const onclickO = () => {
+    const onclickO = (e) => {
+        e.preventDefault()
         setIsActive("O")
+        setUser({ ...user, play: 'O', play2: 'X' });
+        console.log("play:", user.play, "play2:", user.play2);
     }
 
-    const onclickX = () => {
+    const onclickX = (e) => {
+        e.preventDefault()
         setIsActive("X")
+        setUser({ ...user, play: 'X', play2: 'O' });
+        console.log("play:", user.play, "play2:", user.play2);
     }
     console.log("isActive", isActive);
 
@@ -40,20 +48,23 @@ export default function ChoosePlayer() {
         <path d="M120.636 242.115C91.9798 242.115 67.7713 230.926 50.6282 209.758C33.7922 188.966 24.8945 159.972 24.8945 125.906C24.8945 72.2337 54.6052 14.4668 119.843 14.4668C148.487 14.4668 172.622 25.2516 189.642 45.6544C206.788 66.2165 215.849 95.6092 215.849 130.68C215.849 159.939 207.764 186.986 193.082 206.843C176.019 229.917 150.967 242.115 120.636 242.115ZM119.843 24.029C60.4384 24.029 33.3833 76.8387 33.3833 125.904C33.3833 190.689 67.6312 232.552 120.636 232.552C180.545 232.552 207.363 181.385 207.363 130.678C207.361 64.8952 173.826 24.029 119.843 24.029ZM119.578 193.252C92.6335 193.252 73.8153 166.781 73.8153 128.882C73.8153 88.2595 91.7549 63.0254 120.636 63.0254C148.63 63.0254 165.344 86.8648 165.344 126.797C165.341 169.031 148.661 193.252 119.578 193.252ZM120.636 72.5892C96.6331 72.5892 82.3041 93.6296 82.3041 128.882C82.3041 161.152 97.6319 183.689 119.578 183.689C136.583 183.689 156.852 173.819 156.852 126.797C156.852 92.3464 143.652 72.5892 120.636 72.5892Z" fill="#9B9B9B" />
     </svg>
 
+    const editAvatar = 'editAvatar.png'
     const nav = useNavigate()
     const onclickPlay = (e) => {
         e.preventDefault()
-        setUser(user => ({...user, play: isActive }))
+        setUser(user => ({ ...user, play: isActive }))
+        console.log("play:", user.play, "play2", user.play2);
         nav("/BoardWithPlayer")
     }
-    console.log("h", user);
+
     return (
         <div className={style.ChoosePlayer}>
             <ButtonBack />
             <div className={style.withoutbuttonback}>
-                <br />
-                <br />
                 <Title content={"Choose Player"} />
+                <div className={style.minititle}>
+                    <Title content={"For Player 1"} fontSize={'25px'} />
+                </div>
                 <br />
                 <br />
                 <form onSubmit={onclickPlay}>
@@ -69,10 +80,32 @@ export default function ChoosePlayer() {
                             </Cell>
                         </div>
                     </Board>
-                    <br /><br /><br />
-                    <button type='submit' className={style.buttonsubmit}>
-                        {typeof isActive == "string" ? <Button content={"Let's Play!"} /> : null}
-                    </button>
+                    <br /> <br />
+                    <div className={style.players}>
+                        <div className={style.player1}>
+                            <div className={style.userName}>{userName ? userName : "PLAYER 1"}</div>
+                            <img src={img ? img : imgAnonimy} alt="" className={style.img} />
+                            <div >
+                                <img src={editAvatar} alt="" className={style.editAvatar} onClick={() => nav('/Setting')} />
+                            </div>
+                        </div>
+                        <div className={style.vs}>
+                            <Title content={"VS"} fontSize={'60px'} color={'#FCD015'} boxShadow={'0px 0px 0px 0px rgb(0, 0, 0 ,0)'} />
+                        </div>
+                        <div className={style.player2}>
+                            <div className={style.userName}>{userName2 ? userName2 : "PLAYER 2"}</div>
+                            <img src={img2 ? img2 : imgAnonimy} alt="" className={style.img} />
+                            <div>
+                                <img src={editAvatar} alt="" className={style.editAvatar} onClick={() => nav('/SettingPlayer2')} />
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div className={style.buttonsubmit}>
+                        <button type='submit' className={style.buttonsubmit} >
+                            {typeof isActive == "string" ? <Button content={"Let's Play!"} /> : null}
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
