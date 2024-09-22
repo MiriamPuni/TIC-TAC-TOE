@@ -1,5 +1,5 @@
-import style from './style.module.scss'
 import React, { useState } from 'react'
+import style from './style.module.scss'
 
 export default function X({ width, height, filter, transform, notActive = false }) {
     const [isActive, setIsActive] = useState(null)

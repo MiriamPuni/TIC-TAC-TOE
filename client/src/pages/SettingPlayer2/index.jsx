@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { BsCheckLg } from "react-icons/bs"
 import { useNavigate } from 'react-router-dom'
 import { DataContext } from '../../App'
-import AvatarImg from '../../components/AvatarImg'
+import AvatarImgPlayer2 from '../../components/AvatarImgPlayer2'
 import Board from '../../components/Board'
 import ButtonBack from '../../components/ButtonBack'
 import Logo from '../../components/Logo'
@@ -14,37 +14,29 @@ import style from './style.module.scss'
 export default function Setting() {
     const { user, setUser } = useContext(DataContext)
     const { img } = user
-    const [userName, setUserName] = useState('')
+    const [userName2, setUserName2] = useState('')
     const nav = useNavigate()
 
     const onSubmit = (e) => {
         e.preventDefault()
+        nav("/ChoosePlayer")
+        setUser(user => ({ ...user, userName2 }))
 
-        setUser((user) => ({ ...user, userName }))
-        const isPlayer2Set = user.img2 && user.img2 !== "imgAnonimy" && user.userName2 && user.userName2 !== "PLAYER 2";
-
-        if (isPlayer2Set) {
-            nav("/ChoosePlayer");
-        } else {
-            nav("/SettingPlayer2");
-        }
-        localStorage.setItem('playerWins', 0)
-        localStorage.setItem('opponentWins', 0)
     }
 
     return (
         <div className={style.Setting}>
             <Logo />
-            <Title content={"Player 1:"} boxShadow={'0px 0px 0px 0px rgb(0, 0, 0 ,0)'} />
+            <Title content={"Player 2:"} boxShadow={'0px 0px 0px 0px rgb(0, 0, 0 ,0)'} />
             {/* <div className={style.title}>
                 <Title content={"Your Name:"} fontSize={'27px'} boxShadow={'0px 0px 0px 0px rgb(154, 154, 154 ,0)'}/>
             </div> */}
             <Board height={"80px"} width={"95%"} />
             <form onSubmit={onSubmit}>
-                <input type="text" className={style.input} value={userName} onChange={(e) => { setUserName(e.target.value) }} placeholder='Enter Your Name' />
+                <input type="text" className={style.input} value={userName2} onChange={(e) => { setUserName2(e.target.value) }} placeholder='Enter Your Name' />
                 <br />
                 <Title content={"Choose Avater"} />
-                <AvatarImg />
+                <AvatarImgPlayer2 />
                 <br />
                 <div className={style.button2}>
                     <ButtonBack />

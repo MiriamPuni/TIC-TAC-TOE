@@ -1,8 +1,8 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { DataContext } from '../../App'
-import style from './style.module.scss'
 import O from '../O'
 import X from '../X'
+import style from './style.module.scss'
 
 export default function User({ width, height, player, opponentWins, playerWins }) {
 
@@ -39,7 +39,7 @@ export default function User({ width, height, player, opponentWins, playerWins }
         <div className={style.userName}>
           {user.play === 'O' ?
             <div className={style.wins}>
-              <div className={style.winumber}>Wins: { opponentWins}</div>
+              <div className={style.winumber}>Wins: {opponentWins}</div>
               <div className={style.ooo}>
                 <X width={'10%'} height={'10%'} />
               </div>

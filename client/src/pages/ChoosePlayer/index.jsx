@@ -1,15 +1,14 @@
-import style from './style.module.scss'
-import ButtonBack from '../../components/ButtonBack'
-import Title from '../../components/Title'
-import Board from '../../components/Board'
-import Cell from '../../components/Cell'
-import X from '../../components/X'
-import O from '../../components/O'
 import { useContext, useState } from 'react'
-import Button from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
 import { DataContext } from '../../App'
-import User from '../../components/User'
+import Board from '../../components/Board'
+import Button from '../../components/Button'
+import ButtonBack from '../../components/ButtonBack'
+import Cell from '../../components/Cell'
+import O from '../../components/O'
+import Title from '../../components/Title'
+import X from '../../components/X'
+import style from './style.module.scss'
 
 export default function ChoosePlayer() {
     const { user, setUser } = useContext(DataContext)

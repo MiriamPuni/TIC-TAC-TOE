@@ -25,15 +25,15 @@ export default function App() {
   const [opponentWins, setOpponentWins] = useState(() => { return parseInt(localStorage.getItem('opponentWins')) || 0 });
   const [winnerName, setWinnerName] = useState('');
   const [winnerImg, setWinnerImg] = useState('');
-  
-  
+
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setWelcome(false);
     }, 4000);
     return () => clearTimeout(timer);
   }, []);
-  
+
   useEffect(() => {
     setUser(prevUser => ({
       ...prevUser,
@@ -45,7 +45,7 @@ export default function App() {
   useEffect(() => {
     socket.on('connection')
   }, [])
-  
+
   return (
     <DataContext.Provider value={{ user, setUser }}>
       <Routes>

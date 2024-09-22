@@ -1,9 +1,9 @@
-import style from './style.module.scss'
-import Logo from '../../components/Logo'
-import Button from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
+import Button from '../../components/Button'
+import Logo from '../../components/Logo'
+import style from './style.module.scss'
 
-export default function Menu({setPlayerWins , setOpponentWins}) {
+export default function Menu({ setPlayerWins, setOpponentWins }) {
     const nav = useNavigate()
 
     const onClickPlaySolo = (e) => {

@@ -1,27 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Board from '../../components/Board'
-import Cell from '../../components/Cell'
-import style from './style.module.scss'
-import apiReq from '../../function/apiReq'
-import X from '../../components/X'
-import O from '../../components/O'
-import Button from '../../components/Button'
-import HeaderGame from '../../components/HeaderGame'
-import useSocket from '../../socket'
 import { useNavigate } from 'react-router-dom'
 import { DataContext } from '../../App'
+import Board from '../../components/Board'
+import Button from '../../components/Button'
+import Cell from '../../components/Cell'
+import HeaderGame from '../../components/HeaderGame'
+import O from '../../components/O'
+import X from '../../components/X'
+import apiReq from '../../function/apiReq'
+import style from './style.module.scss'
 
-export default function BoardWithPlayer({winnerName, setWinnerName, winnerImg, setWinnerImg, win, setWin, player, setPlayer, playerWins, setPlayerWins, opponentWins, setOpponentWins }) {
+export default function BoardWithPlayer({ winnerName, setWinnerName, winnerImg, setWinnerImg, win, setWin, player, setPlayer, playerWins, setPlayerWins, opponentWins, setOpponentWins }) {
     const { user, setUser } = useContext(DataContext)
     const { play } = user;
-    // const [notActive, setNotActice] = useState(false)
     const [gameOver, setGameOver] = useState(false)
     const nav = useNavigate()
 
-
     useEffect(() => {
         // נוודא שהשחקן הראשון הוא המשתמש הנוכחי
-        setPlayer(play=='X' ? 'X' : 'O');
+        setPlayer(play == 'X' ? 'X' : 'O');
     }, [play, setPlayer]);
 
     // const socket = useSocket()
@@ -32,37 +29,28 @@ export default function BoardWithPlayer({winnerName, setWinnerName, winnerImg, s
     let [board, setBoard] = useState([['', '', ''], ['', '', ''], ['', '', '']])
     async function clickCell(row, col) {
         if (gameOver || board[row][col] !== '') return; // בדיקה אם המשחק נגמר או שהמשבצת כבר תפוסה
-
         // עדכון מיידי של הלוח בסטייט
         const updatedBoard = board.map((r, i) => r.map((cell, j) => {
             if (i === row && j === col) return player;
             return cell;
         }));
-
         // עדכון הלוח בסטייט מיידית
         setBoard(updatedBoard);
         change(); // שינוי השחקן מיידית
-
         // שליחת בקשה לשרת עם הלוח המעודכן
         let res = await apiReq('', 'put', { row, column: col, board: updatedBoard, player });
-
         // אם השרת מחזיר לוח חדש או ניצחון, עדכן את הלוח מחדש
         if (res.data.board) {
             setBoard(res.data.board);
         }
-
         // אם יש ניצחון, עדכן את סטייט הניצחון וסמן שהמשחק נגמר
         if (res.data.win) {
             setWin(res.data.win);
             setGameOver(true);
         }
-
         console.log('🎉🎉', res.data);
     }
-
     console.log("user", user);
-
-
 
     const colorChar = (data) => {
         if (win) {
@@ -80,9 +68,6 @@ export default function BoardWithPlayer({winnerName, setWinnerName, winnerImg, s
 
     const change = () => {
         setPlayer(prevPlayer => (prevPlayer === 'X' ? 'O' : 'X'));
-
-        // if (player == 'X') setPlayer('O')
-        // else setPlayer('X')
     }
 
     return (

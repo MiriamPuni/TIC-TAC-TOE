@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import style from './style.module.scss'
+import { useEffect, useState } from 'react';
+import style from './style.module.scss';
 
 export default function Cell({ width, height, colorCell, children, data, onClick, win }) {
     const [color, setColor] = useState('')

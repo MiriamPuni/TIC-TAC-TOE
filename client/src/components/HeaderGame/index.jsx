@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
-import style from './style.module.scss'
-import User from '../User'
+import { useContext, useEffect } from 'react';
 import { DataContext } from '../../App';
+import User from '../User';
+import style from './style.module.scss';
 
 export default function HeaderGame({ winnerName, setWinnerName, winnerImg, setWinnerImg, width, height, win, setWin, player, setPlayer, playerWins, setPlayerWins, opponentWins, setOpponentWins }) {
     const { user, setUser } = useContext(DataContext)
