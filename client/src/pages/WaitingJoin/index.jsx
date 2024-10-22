@@ -1,7 +1,7 @@
-import style from './style.module.scss'
 import ButtonBack from '../../components/ButtonBack'
 import Loading from '../../components/Loading'
 import Title from '../../components/Title'
+import style from './style.module.scss'
 
 export default function WaitingJoin() {
     return (

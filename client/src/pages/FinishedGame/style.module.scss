@@ -1,5 +1,5 @@
 .withoutbuttonback {
-    margin-top: 60px;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,8 +7,12 @@
 }
 
 .ChoosePlayer {
-    margin: 25px;
-    // animation: entry 0.5s forwards reverse;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: entry 0.5s forwards reverse;
 }
 
 @keyframes entry {
@@ -39,7 +43,7 @@
 }
 
 .minititle {
-    margin-top: -50px;
+    margin-top: -10px;
     margin-bottom: -20px;
 }
 
@@ -82,11 +86,15 @@
     border-radius: 100%;
     width: 35px;
     position: absolute;
-    top: 630px;
+    top: 610px;
     z-index: 2;
 }
 
 .editAvatar {
     width: 40px;
 
+}
+
+.ButtonPlayAgain {
+    margin-top: 100px;
 }

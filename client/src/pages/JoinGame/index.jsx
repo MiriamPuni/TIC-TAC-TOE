@@ -1,18 +1,18 @@
-import style from './style.module.scss'
-import ButtonBack from '../../components/ButtonBack'
-import Title from '../../components/Title'
+import { useNavigate } from 'react-router-dom'
 import Board from '../../components/Board'
 import Button from '../../components/Button'
-import { useNavigate } from 'react-router-dom'
+import ButtonBack from '../../components/ButtonBack'
+import Title from '../../components/Title'
+import style from './style.module.scss'
 
 export default function JoinGame() {
 
     const nav = useNavigate()
-    const WaitingJoin=(e)=>{
+    const WaitingJoin = (e) => {
         e.preventDefault()
         nav("/WaitingJoin")
     }
-    const Waiting=(e)=>{
+    const Waiting = (e) => {
         e.preventDefault()
         nav("/Waiting")
     }
@@ -28,7 +28,7 @@ export default function JoinGame() {
                 <input type="text" className={style.input} placeholder='Enter Code Game' />
                 <br />
                 <div onClick={WaitingJoin}>
-                <Button content={"Join"} fontSize={"30px"} />
+                    <Button content={"Join"} fontSize={"30px"} />
                 </div>
                 <br />
                 <br />
@@ -40,7 +40,7 @@ export default function JoinGame() {
                 <br />
                 <br />
                 <div onClick={Waiting}>
-                <Button content={"Create A Game"} fontSize={"33px"} />
+                    <Button content={"Create A Game"} fontSize={"33px"} />
                 </div>
             </div>
         </div>
