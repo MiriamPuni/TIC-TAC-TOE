@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../../components/Logo'
-import X from '../../components/X'
 import O from '../../components/O'
+import X from '../../components/X'
 import style from './style.module.scss'
 
 

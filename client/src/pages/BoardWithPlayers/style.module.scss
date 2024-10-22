@@ -1,4 +1,4 @@
-.cell9{
+.cell9 {
     display: flex;
     width: 100%;
     height: 85%;
@@ -10,9 +10,29 @@
     margin-bottom: 5px;
 }
 
-.BoardWithPlayer{
+.BoardWithPlayer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: entry 0.5s forwards reverse;
+}
+
+@keyframes entry {
+    0% {
+        translate: 0 0;
+    }
+
+    100% {
+        translate: 100% 0;
+    }
+
+}
+
+.buttonFinish {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -25px;
 }

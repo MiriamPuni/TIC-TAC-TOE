@@ -86,7 +86,7 @@ function randomStep(board) {
 
 
 function checkWin(row, column, board, player) {
-    if (board[row][column] != '') throw 'the place full'
+    // if (board[row][column] != '') throw 'the place full'
     board[row][column] = player
     let win = checkRow(board, row, column, player)
     if (win) return win
